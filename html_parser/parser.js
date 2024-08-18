@@ -20,10 +20,10 @@ function getTableData(htmlBody) {
             const anchorHref = td.querySelector('a').getAttribute('href');
             const anchorContent = td.querySelector('a').textContent;
             anchorData.push(anchorHref);
-            anchorData.push(anchorContent);
+            anchorData.push(anchorContent.trim());
             tdData.push(anchorData);
         } else {
-            tdData.push(td.textContent);
+            tdData.push(td.textContent.trim());
         }
     }
 
@@ -33,7 +33,7 @@ function getTableData(htmlBody) {
     for (let i = 0; i < tdData.length; i += thData.length) {
         const tableData = {};
         for (let j = 0; j < thData.length; j++) {
-            tableData[thData[j]] = tdData[j + i];
+            tableData[thData[j].trim()] = tdData[j + i];
         }
         tableDatas.push(tableData)
     }
