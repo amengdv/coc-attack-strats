@@ -28,20 +28,42 @@ function getTableData(htmlBody) {
     }
 
 
-    const tableDatas = []
+    const tableDatas = [];
 
     for (let i = 0; i < tdData.length; i += thData.length) {
         const tableData = {};
         for (let j = 0; j < thData.length; j++) {
             tableData[thData[j].trim()] = tdData[j + i];
         }
-        tableDatas.push(tableData)
+        tableDatas.push(tableData);
     }
 
-    return tableDatas
+    return tableDatas;
 
 }
 
+async function fetchHtml(url) {
+    let response = null;
+    try {
+        response = await fetch(url)
+    } catch (err) {
+        console.log(err.message)
+    }
+
+    if (response.status >= 400) {
+        throw new Error(`HTML Status: ${response.status}. Check your URL, Internet connection etc. and try again`)
+    }
+
+    const contentType = response.headers.get('content-type')
+
+    if (!contentType || !contentType.includes('text/html')) {
+        throw new Error(`Content type is not a HTML`)
+    }
+
+    return await response.text()
+}
+
 export {
-    getTableData
+    getTableData,
+    fetchHtml
 };
