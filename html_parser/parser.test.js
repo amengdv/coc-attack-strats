@@ -92,4 +92,46 @@ test('Get anchor element inside td', () => {
 
 });
 
+test('test with real snippet', () => {
+   const html = `<!DOCTYPE html>
+<html lang="en">
+<table>
+<thead><tr>
+<th class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Article
+</th>
+<th class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Author
+</th>
+<th class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Town Hall
+</th>
+<th class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Trophies
+</th></tr></thead>
+<tbody>
+<tr style="background: linear-gradient(to top, Goldenrod, rgba(255,255,255,0) 8px), linear-gradient(to bottom, Goldenrod, rgba(255,255,255,0) 8px), linear-gradient(to left, Goldenrod, rgba(255,255,255,0) 8px), linear-gradient(to right, Goldenrod, rgba(255,255,255,0) 8px);">
+<td style="text-align:left;padding:5px 10px;"><a href="/wiki/Attack_Strategies:Low_Level_Destruction" title="Attack Strategies:Low Level Destruction">Attack Strategies:Low Level Destruction</a>
+</td>
+<td style="padding:5px 10px;"><a href="/wiki/User:ChiefDrewClash" title="User:ChiefDrewClash">ChiefDrewClash</a>
+</td>
+<td style="padding:5px 10px;">5-7
+</td>
+<td style="padding:5px 10px;">800-1,200
+</td></tr>
+</tbody>
+</table>
+</html>
+    `;
 
+    expect(getTableData(html)).toStrictEqual(
+        [
+      {
+        'Article': [
+          '/wiki/Attack_Strategies:Low_Level_Destruction',
+          'Attack Strategies:Low Level Destruction'
+        ],
+        'Author': [ '/wiki/User:ChiefDrewClash', 'ChiefDrewClash' ],
+        'Town Hall': '5-7',
+        'Trophies': '800-1,200'
+      }
+    ]
+
+    )
+});
