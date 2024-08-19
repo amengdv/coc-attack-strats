@@ -1,5 +1,6 @@
 import { test, expect } from '@jest/globals'
-import { getTableData } from './parser.js'
+import { getTableData, getContentWithDataType } from './parser.js'
+import { tdDataTypeMockData } from './long_mock_test.js'
 
 test('Get normal element inside td', () => {
     const html1 = `<!DOCTYPE html>
@@ -135,3 +136,20 @@ test('test with real snippet', () => {
 
     )
 });
+
+
+test('td with data type troop type', async () => {
+    const data = tdDataTypeMockData()
+
+    const res = await getContentWithDataType(data, "troop type", 'Spells') 
+
+    expect(res).toStrictEqual(
+        [
+            'Dragons',
+            'P.E.K.K.As',
+            'Valkyries',
+            'Golems',
+        ]
+    )
+
+})
