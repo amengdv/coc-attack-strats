@@ -82,13 +82,11 @@ async function filterTroops(data, troops=[], baseUrl) {
         // console.log(isSubset)
 
         if (isSubset) {
-            console.log('pushing to filtered')
             const dataObj = data[index]
             filtered.push(dataObj)
         }
     })
 
-    console.log('returning filtered')
     return filtered
 }
 
