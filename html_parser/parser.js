@@ -63,7 +63,28 @@ async function fetchHtml(url) {
     return await response.text()
 }
 
+async function getContentWithDataType(htmlBody, dataType, filter='') {
+    const dom = new JSDOM(htmlBody)
+
+    const datas = dom.window.document.querySelectorAll(`[data-type="${dataType}"]`)
+    if (datas === null) {
+        console.log(`No element with attributes ${dataType}`)
+        return []
+    }
+    const datasArray = Array.from(datas)
+
+
+    const content = []
+    for (const data of datasArray.slice(1, -1)) {
+        if (!data.textContent.includes(filter)) {
+            content.push(data.textContent)
+        }
+    }
+    return content
+}
+
 export {
     getTableData,
-    fetchHtml
+    fetchHtml,
+    getContentWithDataType
 };
