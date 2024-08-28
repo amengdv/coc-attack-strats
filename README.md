@@ -14,8 +14,16 @@ and experiment with new strategy when the wiki updates its data
 
 ### Guide
 
-Have not think about it yet. Soon Soon :D
-
+Clone this repo
+```bash
+git clone https://github.com/amengdv/coc-attack-strats.git
+```
+Add main.sh file and add this command
+```
+node --no-deprecation "absolute/path/to/main.js" "$@"
+```
+Add main.sh to your path. You can give it whatever command you want I just named it cocstrats.
+So when I want to use it I can type `cocstrats [option]`
 ## Usage
 
 ```
@@ -26,5 +34,3 @@ Options:
   -d, --depth <number>       How much data to display (default: 5)
   -h, --help                 display help for command
 ```
-
-This project is probably highly unoptimized. Going to improve that.

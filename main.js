@@ -5,6 +5,8 @@ import { printReport } from './data_handler/report.js';
 
 async function main() {
 
+    console.time('Process')
+
     const url = new URL('https://clashofclans.fandom.com/wiki/Clash_of_Clans_Wiki:Attack_Strategies')
     const baseUrl = `https://${url.hostname}`
 
@@ -44,6 +46,8 @@ async function main() {
     }
 
     printReport(filteredData, baseUrl, options.depth)
+
+    console.timeEnd('Process')
 }
 
 await main()

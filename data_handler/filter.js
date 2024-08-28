@@ -55,7 +55,6 @@ async function filterTroops(data, troops=[], baseUrl) {
     let troopsData = []
 
     console.log('Fetching HTML and extracting troops data...')
-    console.time()
     try {
         troopsData = await Promise.all(
             data.slice(0, 25).map(obj => limit(async () => {
@@ -67,11 +66,9 @@ async function filterTroops(data, troops=[], baseUrl) {
     } catch(err) {
         console.log(err.message)
     }
-    console.timeEnd()
     console.log(`Done fetching HTML and extracting troops data`)
 
 
-    console.log('Starting filtering')
     troopsData.forEach((troopData, index) => {
         const troopSet = new Set(troopData)
         const isSubset = troops.every(troop => {
