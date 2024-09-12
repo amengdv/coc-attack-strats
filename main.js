@@ -27,6 +27,7 @@ async function main() {
         .option('-tp, --trophies <number>', 'Specify trophies value')
         .option('-tr, --troops <string...>', 'A list of troops separated by space')
         .option('-d, --depth <number>', 'How much data to display', 5)
+        .option('-p, --page <number>', 'Troop data page max=5', 1)
 
     program.parse(process.argv)
 
@@ -42,7 +43,7 @@ async function main() {
     }
 
     if (options.troops) {
-        filteredData = await filterTroops(filteredData, options.troops, baseUrl)
+        filteredData = await filterTroops(filteredData, options.troops, baseUrl, page)
     }
 
     printReport(filteredData, baseUrl, options.depth)

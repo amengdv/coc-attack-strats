@@ -27,10 +27,13 @@ So when I want to use it I can type `cocstrats [option]`
 ## Usage
 
 ```
+Usage: Coc Attack Strategies [options]
+
 Options:
   -th, --townhall <number>   Specify townhall level
   -tp, --trophies <number>   Specify trophies value
   -tr, --troops <string...>  A list of troops separated by space
   -d, --depth <number>       How much data to display (default: 5)
+  -p, --page <number>        Troop data page max=5 (default: 1)
   -h, --help                 display help for command
 ```

@@ -50,14 +50,18 @@ function filterTrophy(data, trophy) {
 }
 
 
-async function filterTroops(data, troops=[], baseUrl) {
+async function filterTroops(data, troops=[], baseUrl, page) {
     const filtered = []
     let troopsData = []
+
+    page = Math.min(Math.max(page, 1), 5)
+    let end = page * 20
+    let start = end - 20
 
     console.log('Fetching HTML and extracting troops data...')
     try {
         troopsData = await Promise.all(
-            data.slice(0, 25).map(obj => limit(async () => {
+            data.slice(start, end).map(obj => limit(async () => {
                 const body = await fetchHtml( new URL(obj.Article[0], baseUrl) ) 
                 return getContentWithDataType(body, "troop type", 'Spells')
             }))
@@ -74,9 +78,6 @@ async function filterTroops(data, troops=[], baseUrl) {
         const isSubset = troops.every(troop => {
             return troopSet.has(troop)
         })
-
-        // console.log(troopSet)
-        // console.log(isSubset)
 
         if (isSubset) {
             const dataObj = data[index]
