@@ -23,7 +23,7 @@ async function main() {
     const program = new Command()
 
     program.name('cocstrats')
-    program.version('1.0.0')
+    program.version('1.0.1')
 
     program
         .option('-th, --townhall <number>', 'Specify townhall level')
