@@ -1,4 +1,7 @@
 function printReport(filteredData, baseUrl, depth) {
+    if (depth >= 100) {
+        depth = 100
+    }
     let i = 0
     console.log('=========== REPORT ============')
     for (const obj of filteredData) {

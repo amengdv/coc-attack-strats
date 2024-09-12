@@ -54,8 +54,9 @@ async function filterTroops(data, troops=[], baseUrl, page) {
     const filtered = []
     let troopsData = []
 
-    page = Math.min(Math.max(page, 1), 5)
-    let end = page * 20
+    let maxminPage = Math.min(Math.max(page, 1), 5)
+    console.log(maxminPage)
+    let end = maxminPage * 20
     let start = end - 20
 
     console.log('Fetching HTML and extracting troops data...')

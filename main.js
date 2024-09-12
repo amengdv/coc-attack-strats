@@ -23,6 +23,7 @@ async function main() {
     const program = new Command()
 
     program.name('cocstrats')
+    program.version('1.0.0')
 
     program
         .option('-th, --townhall <number>', 'Specify townhall level')
@@ -31,7 +32,7 @@ async function main() {
         .option('-d, --depth <number>', 'How much data to display', 5)
         .option('-p, --page <number>', 'Troop data page max=5', 1)
 
-    program.parse(process.argv)
+    program.parse(process.argv, )
 
     const options = program.opts()
 
@@ -45,7 +46,7 @@ async function main() {
     }
 
     if (options.troops) {
-        filteredData = await filterTroops(filteredData, options.troops, baseUrl, page)
+        filteredData = await filterTroops(filteredData, options.troops, baseUrl, options.page)
     }
 
     printReport(filteredData, baseUrl, options.depth)
