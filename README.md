@@ -9,7 +9,12 @@ and experiment with new strategy when the wiki updates its data
 
 ### Using NPM
 ```bash
-npm -i coc-attack-strats
+npm install -g coc-attack-strats
+```
+
+### Verify the installation
+```bash
+cocstrats -h
 ```
 
 ## Usage
