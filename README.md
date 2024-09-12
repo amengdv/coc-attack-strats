@@ -7,27 +7,15 @@ and experiment with new strategy when the wiki updates its data
 
 ## Installation
 
-### Requirements
-
-- jsdom
-- commander
-
-### Guide
-
-Clone this repo
+### Using NPM
 ```bash
-git clone https://github.com/amengdv/coc-attack-strats.git
+npm -i coc-attack-strats
 ```
-Add main.sh file and add this command
-```
-node --no-deprecation "absolute/path/to/main.js" "$@"
-```
-Add main.sh to your path. You can give it whatever command you want I just named it cocstrats.
-So when I want to use it I can type `cocstrats [option]`
+
 ## Usage
 
 ```
-Usage: Coc Attack Strategies [options]
+Usage: cocstrats [options]
 
 Options:
   -th, --townhall <number>   Specify townhall level
