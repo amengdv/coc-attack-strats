@@ -9,7 +9,7 @@ and experiment with new strategy when the wiki updates its data
 
 ### Using NPM
 ```bash
-npm install -g coc-attack-strats
+npm install -g cocstrats
 ```
 
 ### Verify the installation
