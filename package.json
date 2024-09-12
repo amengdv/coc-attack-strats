@@ -1,11 +1,11 @@
 {
     "name": "coc-attack-strats",
-    "version": "1.0.3",
+    "version": "1.0.0",
     "description": "A tool to help lookup clash of clans attack strategy",
     "main": "main.js",
     "type": "module",
     "bin": {
-        "cocstrats": "./main.js"
+        "cocstrats": "main.js"
     },
     "scripts": {
         "start": "node --no-deprecation main.js",
