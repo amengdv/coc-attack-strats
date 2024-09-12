@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { fetchHtml, getTableData } from './html_parser/parser.js'
 import { filterTownhall, filterTroops, filterTrophy } from './data_handler/filter.js'
 import { Command } from "commander";
@@ -20,7 +22,7 @@ async function main() {
     const data = getTableData(body)
     const program = new Command()
 
-    program.name('Coc Attack Strategies')
+    program.name('cocstrats')
 
     program
         .option('-th, --townhall <number>', 'Specify townhall level')
